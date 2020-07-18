@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.3.0'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+bukkit {
+    // Default values can be overridden if needed
+    // name = 'TestPlugin'
+    // version = '1.0'
+    // description = 'This is a test plugin'
+
+    // Plugin main class (required)
+    main = 'com.solostudios.simplefly.SimpleFly'
+
+    // API version (should be set for 1.13+)
+    apiVersion = '1.16'
+
+    // Other possible properties from plugin.yml (optional)
+    load = 'STARTUP' // or 'POSTWORLD'
+    authors = ['solonovamax']
+    prefix = 'SimpleFly'
+    defaultPermission = 'OP' // 'TRUE', 'FALSE', 'OP' or 'NOT_OP'
+
+    commands {
+        togglefly {
+            description = 'Toggles flight on/off.'
+            permission = 'simplefly.togglefly'
+            usage = '/<command>'
+            permissionMessage = 'You require the simplefly.togglefly permission to use this command!'
+        }
+    }
+
+    permissions {
+        'simplefly.togglefly' {
+            description = 'Permits a user to save a region.'
+            setDefault('OP')
+        }
+    }
+}
+
+group 'com.solostudios'
+version '0.1-SNAPSHOT'
+libsDirName = '/home/solonovamax/Spigot/1.16.1/SimpleFly/plugins'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url = 'https://papermc.io/repo/repository/maven-public/' }
+    maven { url = 'http://maven.sk89q.com/repo/' }
+}
+
+
+dependencies {
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compileOnly 'org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT'
+    //compileOnly 'com.destroystokyo.paper:paper-api:1.16.1-R0.1-SNAPSHOT'
+}
