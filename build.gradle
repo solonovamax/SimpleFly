@@ -22,12 +22,9 @@ plugins {
 }
 
 bukkit {
-    // Default values can be overridden if needed
-    // name = 'TestPlugin'
-    // version = '1.0'
-    // description = 'This is a test plugin'
-
-    // Plugin main class (required)
+    name = 'SimpleFly'
+    version = '1.0.0'
+    description = 'Plugin that allows you to fly.'
     main = 'com.solostudios.simplefly.SimpleFly'
 
     // API version (should be set for 1.13+)
@@ -57,7 +54,7 @@ bukkit {
 }
 
 group 'com.solostudios'
-version '1.0'
+version '1.0.0'
 libsDirName = '/home/solonovamax/Spigot/1.16.1/SimpleFly/plugins'
 
 repositories {
